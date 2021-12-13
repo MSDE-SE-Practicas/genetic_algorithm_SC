@@ -1,0 +1,19 @@
+V "GNAT Lib v2021"
+A -gnatA
+A -mtune=generic
+A -march=x86-64
+P ZX
+
+RN
+RV NO_FIXED_POINT
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U sim_types%s		sim_types.ads		730f7bf6 NE OO PK IL
+
+D sim_types.ads		20211112162550 730f7bf6 sim_types%s
+D system.ads		20210520051136 2ffa5114 system%s
+G a e
+X 1 sim_types.ads
+1K9*sim_types 8l5 8e14
+3O9*Real 6r8
+

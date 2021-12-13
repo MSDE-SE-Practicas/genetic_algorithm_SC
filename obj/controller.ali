@@ -1,0 +1,65 @@
+V "GNAT Lib v2021"
+A -gnatA
+A -mtune=generic
+A -march=x86-64
+P ZX
+
+RN
+RV NO_FIXED_POINT
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U controller%b		controller.adb		fe09bfa0 NE OO PK
+W dc_motor_sim%s	dc_motor_sim.adb	dc_motor_sim.ali
+Z interfaces%s		interfac.ads		interfac.ali
+Z system.arith_64%s	s-arit64.adb		s-arit64.ali
+
+U controller%s		controller.ads		d1a395e2 EE NE OO PK
+W sim_types%s		sim_types.ads		sim_types.ali
+
+D controller.ads	20211112162548 a2acee14 controller%s
+D controller.adb	20211112162548 7aa17417 controller%b
+D dc_motor_sim.ads	20211112162548 260425a3 dc_motor_sim%s
+D interfac.ads		20210520051132 edec285f interfaces%s
+D sim_types.ads		20211112162550 730f7bf6 sim_types%s
+D system.ads		20210520051136 2ffa5114 system%s
+D s-arit64.ads		20210520051132 5f88d2b0 system.arith_64%s
+G a e
+G c Z s b [init controller 6 14 none]
+G c Z s b [set_reference controller 8 14 none]
+G c Z s b [exec_controller_cycle controller 10 14 none]
+G c Z s s [TeBIP controller 15 4 none]
+G r c none [exec_controller_cycle controller 10 14 none] [give_me_speed dc_motor_sim 11 16 none]
+G r c none [exec_controller_cycle controller 10 14 none] [set_ea dc_motor_sim 9 17 none]
+X 1 controller.ads
+4K9*Controller 13E4 17l5 17e15 2|3b14 43l5 43t15
+6U14*Init 6>19 6>27 6>35 2|5b14 16l8 16t12
+6o19 new_Kp{5|3O9} 2|5b19 7r13
+6o27 new_Ki{5|3O9} 2|5b27 8r13
+6o35 new_Kd{5|3O9} 2|5b35 9r13
+8U14*Set_reference 8>28 2|18b14 21l8 21t21
+8o28 Angular_speed{5|3O9} 2|18b28 20r34
+10U14*Exec_controller_cycle 2|23b14 41l8 41t29
+13o4 Kp{5|3O9} 2|7m7 38r28
+13o8 Ki{5|3O9} 2|8m7 38r38
+13o12 Kd{5|3O9} 2|9m7 38r46
+14o4 Angular_speed_reference{5|3O9} 2|20m7 30r15
+15a4 E(5|3O9) 2|12m7 13m7 30m7 31r18 32r14 32r21 35m7 35r16 38r31
+16o4 Ei{5|3O9} 2|14m7 31m7 31r13 38r41
+16o8 Ed{5|3O9} 2|15m7 32m7 38r49
+X 2 controller.adb
+24o7 motor_speed{5|3O9} 29m7 30r41
+25o7 new_motor_voltage{5|3O9} 38m7 39r27
+26o7 Controller_T{5|3O9} 32r28
+X 3 dc_motor_sim.ads
+4K9*DC_motor_sim 2|1w6 29r22 39r7 3|15e17
+9U17*Set_ea 2|39s20
+11V16*Give_me_speed{5|3O9} 2|29s35
+X 4 interfac.ads
+55I9*Integer_64<long_long_integer>
+X 5 sim_types.ads
+1K9*sim_types 1|1w6 2r5 5|8e14
+3O9*Real 1|6r46 8r46 13r16 14r29 15r23 16r13 2|5r46 18r46 24r20 25r27 26r21
+X 7 s-arit64.ads
+44I12*Int64{4|55I9}
+54V13*Multiply_With_Ovflo_Check64{44I12} 55i<c,__gnat_mulv64>22
+

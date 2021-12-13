@@ -1,0 +1,68 @@
+V "GNAT Lib v2021"
+A -gnatA
+A -mtune=generic
+A -march=x86-64
+P ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_FIXED_POINT
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U simulator_operator%b	simulator_operator.adb	acce5232 NE OO PK
+W controller%s		controller.adb		controller.ali
+W dc_motor_sim%s	dc_motor_sim.adb	dc_motor_sim.ali
+
+U simulator_operator%s	simulator_operator.ads	2a37bc02 EE NE OO PK
+W sim_types%s		sim_types.ads		sim_types.ali
+
+D controller.ads	20211112162548 a2acee14 controller%s
+D dc_motor_sim.ads	20211112162548 260425a3 dc_motor_sim%s
+D sim_types.ads		20211112162550 730f7bf6 sim_types%s
+D simulator_operator.ads  20211112162550 5938c7f4 simulator_operator%s
+D simulator_operator.adb  20211112162550 715e5e71 simulator_operator%b
+D system.ads		20210520051136 2ffa5114 system%s
+G a e
+G c Z s b [carry_out_a_simulation simulator_operator 5 14 none]
+G r c none [carry_out_a_simulation simulator_operator 5 14 none] [init dc_motor_sim 7 17 none]
+G r c none [carry_out_a_simulation simulator_operator 5 14 none] [init controller 6 14 none]
+G r c none [carry_out_a_simulation simulator_operator 5 14 none] [set_reference controller 8 14 none]
+G r c none [carry_out_a_simulation simulator_operator 5 14 none] [exec_controller_cycle controller 10 14 none]
+G r c none [carry_out_a_simulation simulator_operator 5 14 none] [exec_cycle dc_motor_sim 13 17 none]
+G r c none [carry_out_a_simulation simulator_operator 5 14 none] [give_me_speed dc_motor_sim 11 16 none]
+X 1 controller.ads
+4K9*Controller 17e15 5|1w20 21r7 24r7 33r7 47r13
+6U14*Init 5|21s18
+8U14*Set_reference 5|24s18
+10U14*Exec_controller_cycle 5|33s18 47s24
+X 2 dc_motor_sim.ads
+4K9*DC_motor_sim 15e17 5|1w6 20r7 34r7 37r22 49r10
+7U17*init 5|20s20
+11V16*Give_me_speed{3|3O9} 5|37s35
+13U17*Exec_cycle 5|34s20 49s23
+X 3 sim_types.ads
+1K9*sim_types 8e14 4|1w6 2r5
+3O9*Real 4|5r52 5r69 5|6r52 6r69 8r32 13r39 16r30 54r19 86r19 86r49
+X 4 simulator_operator.ads
+4K9*Simulator_operator 6l5 6e23 5|4b14 91l5 91t23
+5U14*Carry_out_a_simulation 5>37 5>41 5>45 5<58 5|6b14 89l8 89t30
+5o37 Kp{3|3O9} 5|6b37 21r23
+5o41 Ki{3|3O9} 5|6b41 21r27
+5o45 Kd{3|3O9} 5|6b45 21r31
+5o58 Score{3|3O9} 5|6b58 54m10 86m10
+X 5 simulator_operator.adb
+8a7 speed(3|3O9) 28m10 37m10 40r14 40r55 60r16 60r27 68r19 77r46
+9b7 abort_simulation{boolean} 41m13 53r10
+11i7 Tr{integer} 57m10 61m16 66r13 69m19 75r14 75r27 76r22 86r28
+11i11 Ts{integer} 78m19 82m13 86r58
+13o7 Controller_reference{3|3O9} 16r43 24r32 40r25 68r30 77r23 77r58
+14i7 Expected_Tr{integer} 86r33
+15i7 Expected_Tp{integer}
+16o7 Expected_Mp{3|3O9}
+17i7 Expected_Ts{integer} 86r63
+27i11 x{integer} 28r16
+36i11 x{integer} 37r16 40r20 40r61 45r15
+59i14 x{integer} 60r22 60r33
+67i17 x{integer} 68r25 69r25
+76i17 x{integer} 77r52 78r25
+

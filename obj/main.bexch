@@ -1,0 +1,24 @@
+[GENERATED OBJECT FILE]
+b__main.o
+[PROJECT FILES]
+C:\repos\genetic_algorithm_SC\genetic_algorithm_sc.gpr
+20211211140754 40f4c0c21e4ae4a91ef833ef1018eea6
+[BOUND OBJECT FILES]
+C:\repos\genetic_algorithm_SC\obj\sim_types.o
+C:\repos\genetic_algorithm_SC\obj\dc_motor_sim.o
+C:\repos\genetic_algorithm_SC\obj\controller.o
+C:\repos\genetic_algorithm_SC\obj\simulator_operator.o
+C:\repos\genetic_algorithm_SC\obj\ga_operator.o
+C:\repos\genetic_algorithm_SC\obj\main.o
+[GENERATED SOURCE FILES]
+b__main.ads
+b__main.adb
+b__main.ali
+[RESULTING OPTIONS]
+-LC:\repos\genetic_algorithm_SC\obj\
+-LC:\repos\genetic_algorithm_SC\obj\
+-LC:/gnat/2021/lib/gcc/x86_64-w64-mingw32/10.3.1/adalib/
+-static
+-static-libgcc
+C:/gnat/2021/lib/gcc/x86_64-w64-mingw32/10.3.1/adalib/libgnat.a
+-Wl,--stack=0x2000000

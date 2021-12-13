@@ -1,0 +1,59 @@
+V "GNAT Lib v2021"
+A -gnatA
+A -mtune=generic
+A -march=x86-64
+P ZX
+
+RN
+RV NO_FIXED_POINT
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U dc_motor_sim%b	dc_motor_sim.adb	54c6707b NE OO PK IL
+Z interfaces%s		interfac.ads		interfac.ali
+Z system.arith_64%s	s-arit64.adb		s-arit64.ali
+
+U dc_motor_sim%s	dc_motor_sim.ads	550b5e55 EE NE OO PK IL
+W sim_types%s		sim_types.ads		sim_types.ali
+
+D dc_motor_sim.ads	20211112162548 260425a3 dc_motor_sim%s
+D dc_motor_sim.adb	20211112162548 72c255d8 dc_motor_sim%b
+D interfac.ads		20210520051132 edec285f interfaces%s
+D sim_types.ads		20211112162550 730f7bf6 sim_types%s
+D system.ads		20210520051136 2ffa5114 system%s
+D s-arit64.ads		20210520051132 5f88d2b0 system.arith_64%s
+G a e
+G c Z s b [init dc_motor_sim 7 17 none]
+G c Z s b [set_ea dc_motor_sim 9 17 none]
+G c Z s b [give_me_speed dc_motor_sim 11 16 none]
+G c Z s b [exec_cycle dc_motor_sim 13 17 none]
+X 1 dc_motor_sim.ads
+4K9*DC_motor_sim 15l5 15e17 2|2b14 58l5 58t17
+7U17*init 2|12b14 31l8 31t12
+9U17*Set_ea 9>24 2|33b14 43l8 43t14
+9o24 new_ea{4|3O9} 2|33b21 35r13
+11V16*Give_me_speed{4|3O9} 2|45b13 48l8 48t21
+13U17*Exec_cycle 2|50b14 57l8 57t18
+X 2 dc_motor_sim.adb
+4o4 motor_T{4|3O9} 14m7 26r41 27r29 29r29 30r41
+5o4 w_ec_w_factor{4|3O9} 26m7 55r15
+5o19 w_ec_i_factor{4|3O9} 27m7 55r36
+6o4 i_ec_v_factor{4|3O9} 29m7 56r36
+6o19 i_ec_i_factor{4|3O9} 30m7 56r15
+8o4 R{4|3O9} 15m7 30r49
+8o7 L{4|3O9} 16m7 29r43 30r57
+8o10 J{4|3O9} 17m7 26r58 27r45
+8o13 fv{4|3O9} 18m7 26r49
+8o17 K{4|3O9} 19m7 27r37 56r56
+8o20 ea{4|3O9} 20m7 35m7 37r10 38m10 40r10 41m10 56r51
+9a4 i(4|3O9) 23m7 24m7 54m7 54r15 55r50 56m7 56r29
+9a7 w(4|3O9) 21m7 22m7 47r14 53m7 53r15 55m7 55r29 56r58
+X 3 interfac.ads
+55I9*Integer_64<long_long_integer>
+X 4 sim_types.ads
+1K9*sim_types 1|1w6 2r5 4|8e14
+3O9*Real 1|9r35 11r37 2|4r13 5r35 6r35 8r24 9r25 26r24 26r36 26r53 27r24
+. 27r40 29r24 29r38 30r24 30r36 30r52 33r32 45r34
+X 6 s-arit64.ads
+44I12*Int64{3|55I9}
+54V13*Multiply_With_Ovflo_Check64{44I12} 55i<c,__gnat_mulv64>22
+
