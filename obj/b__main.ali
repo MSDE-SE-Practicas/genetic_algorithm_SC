@@ -18,12 +18,12 @@ RV NO_IMPLICIT_LOOPS
 RV NO_ELABORATION_CODE
 RV NO_OBSOLESCENT_FEATURES
 
-U ada_main%b		b__main.adb		fbee97dc OO PK IL
+U ada_main%b		b__main.adb		80679e90 OO PK IL
 W ada%s			ada.ads			ada.ali
 W ada.exceptions%s	a-except.adb		a-except.ali
 Z system%s		system.ads		system.ali
 
-U ada_main%s		b__main.ads		24f1d9bb EE NE OO PK IL
+U ada_main%s		b__main.ads		bb02f27e EE NE OO PK IL
 W system%s		system.ads		system.ali
 W system.parameters%s	s-parame.adb		s-parame.ali
 W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
@@ -31,8 +31,8 @@ W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
 D ada.ads		20210520051132 76789da1 ada%s
 D a-except.ads		20210520051128 946f3014 ada.exceptions%s
 D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
-D b__main.ads		20211213193312 d763f52f ada_main%s
-D b__main.adb		20211213193312 b8e252e7 ada_main%b
+D b__main.ads		20211227211000 4890deea ada_main%s
+D b__main.adb		20211227211000 5c98706e ada_main%b
 D system.ads		20210520051136 2ffa5114 system%s
 D s-parame.ads		20210520051134 4752c4cb system.parameters%s
 D s-secsta.ads		20210520051134 9b3ab94b system.secondary_stack%s
@@ -51,7 +51,7 @@ X 1 ada.ads
 X 2 a-except.ads
 44K13*Exceptions 289e19 5|6w10
 X 4 b__main.ads
-6K9*ada_main 599l5 599e13 5|8b14 281l5 281t13
+6K9*ada_main 602l5 602e13 5|8b14 281l5 281t13
 8i4*gnat_argc{integer} 12m22 12r22 5|252r10 253m10
 9m4*gnat_argv{6|67M9} 13m22 13r22 5|254m10
 10m4*gnat_envp{6|67M9} 14m22 14r22 5|256m7
@@ -81,7 +81,7 @@ X 4 b__main.ads
 . 331r22 333r22 335r22 337r22 339r22 341r22 343r22 345r22 347r22 349r22 351r22
 . 353r22 355r22 357r22 359r22 361r22 363r22 365r22 367r22 369r22 371r22 373r22
 . 375r22 377r22 379r22 381r22 383r22 385r22 387r22 389r22 391r22 393r22 395r22
-. 397r22 399r22 401r22 403r22 405r22 407r22 409r22
+. 397r22 399r22 401r22 403r22 405r22 407r22 409r22 411r22
 43m4*u00001{42M9} 44r22
 45m4*u00002{42M9} 46r22
 47m4*u00003{42M9} 48r22
@@ -266,6 +266,7 @@ X 4 b__main.ads
 405m4*u00182{42M9} 406r22
 407m4*u00183{42M9} 408r22
 409m4*u00184{42M9} 410r22
+411m4*u00185{42M9} 412r22
 X 5 b__main.adb
 10i4 E069{short_integer} 10m46 10r46 189m7 189r15
 11i4 E008{short_integer} 11m46 11r46 195m7 195r15
@@ -331,7 +332,7 @@ X 5 b__main.adb
 129p7*Finalize_Library_Objects{89P9} 130m25 130r25 164m7
 131i7*Binder_Sec_Stacks_Count{natural} 132m27 132r27 159m7
 133m7*Default_Sized_SS_Pool{6|67M9} 134m27 134r27 160m7
-232U14 Ada_Main_Program 233b<ada,_ada_ga_main>24 260s7
+232U14 Ada_Main_Program 233b<ada,_ada_main>24 260s7
 241U17*Initialize 241>29 242b<c,__gnat_initialize>25 258s7
 241m29 Addr{6|67M9}
 244U17*Finalize 245b<c,__gnat_finalize>25 262s7

@@ -230,7 +230,7 @@ package body ada_main is
    end adainit;
 
    procedure Ada_Main_Program;
-   pragma Import (Ada, Ada_Main_Program, "_ada_ga_main");
+   pragma Import (Ada, Ada_Main_Program, "_ada_main");
 
    function main
      (argc : Integer;

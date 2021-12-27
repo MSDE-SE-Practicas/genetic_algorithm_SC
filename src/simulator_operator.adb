@@ -7,14 +7,20 @@ package body Simulator_operator is
 
       speed: array(1..2000) of Real; -- Samples during 0.2s
       abort_simulation : boolean := false;
-      --Tp : integer;
+      val_reg_perm_reached : boolean := false;
+      Tp_checked : boolean := false;
+      val_reg_perm : Real;
+      val : Real;
+      percentage : Natural;
+      Tp : Integer;
       Tr, Ts : integer;
-      --Tp_value, Mp : Real;
+      --Tp_value
+      Mp : Real;
       Controller_reference : constant Real := 80.0;
-      Expected_Tr : constant integer := 120; -- /12 ms
-      Expected_Tp : constant integer := 140; -- /14 ms
-      Expected_Mp : constant Real := 0.05*Controller_reference; -- 5%
-      Expected_Ts : constant integer := 900; --/10 ms
+      Expected_Tr : constant integer := 140; -- /14 ms
+      -- Expected_Tp : constant integer := 140; -- /14 ms
+      Expected_Mp : constant Real := 0.07*Controller_reference; -- 7%
+      -- Expected_Ts : constant integer := 900; --/10 ms
    begin
       -- Init motor simulator and speed controller
       Dc_motor_sim.init;
@@ -54,36 +60,47 @@ package body Simulator_operator is
          Score := Real'Last/2.0;
       else
          -- Look for rise time
+         val_reg_perm := speed(2000);
          Tr := 0;
-         -- In this case we penalize oscillations
+
+         -- We penalize oscilations only before the value on permament regimen is reached. We also penalize Tr bigger than 15ms or lower than 13ms
          for x in 2..2000 loop
-            if speed(x) < speed(x-1) then
-               Tr := integer'last/4;
-               exit;
+            if not val_reg_perm_reached then
+               if speed(x) > val_reg_perm then
+                  val_reg_perm_reached := True;
+                  if (x > 140) or (x < 130) then
+                     Tr := integer'last/4;
+                  else
+                     Tr := x;
+                  end if;
+               end if;
+               if speed(x) < speed(x-1) then
+                  Tr := integer'last/4;
+                  exit;
+               end if;
+            end if;
+
+            --Tp management
+            if val_reg_perm_reached and not Tp_checked then
+               Tp_checked := True;
+               if speed(x) <= speed(x-1) then
+                  val := speed(x) - val_reg_perm;
+                  if val = Expected_Mp then
+                     Mp := val;
+                  else
+                     if val > Expected_Mp then
+                        percentage := Natural(val*100/speed(x));
+                        Mp := Real(float(val) ** (percentage - 6));
+                     else
+                        Mp := Real'Last/2.0;
+                     end if;
+                  end if;
+               end if;
             end if;
          end loop;
 
-         if Tr = 0 then
-            for x in reverse 1..2000 loop
-               if speed(x) > Controller_reference*0.63 then
-                  Tr := x;
-               end if;
-            end loop;
-         end if;
-
-         -- Look for settling time
-         if (Tr > 0) and (Tr < 2000) then
-            for x in Tr..2000 loop
-               if abs(Controller_reference - speed(x)) > Controller_reference*0.02 then
-                  Ts := x;
-               end if;
-            end loop;
-         else
-            Ts := integer'Last/4;
-         end if;
-
          -- A better score is a lower score
-         Score := Real(abs(Tr - Expected_Tr)) + Real(abs(Ts - Expected_Ts));
+         Score := Real(abs(Tr - Expected_Tr)) + Real(abs(Mp - Expected_Mp));
       end if;
 
    end Carry_out_a_simulation;

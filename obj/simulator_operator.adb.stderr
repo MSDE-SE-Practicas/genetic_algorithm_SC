@@ -1,0 +1,2 @@
+simulator_operator.adb:15:07: warning: variable "Tp" is never read and never assigned [-gnatwv]
+simulator_operator.adb:16:11: warning: variable "Ts" is never read and never assigned [-gnatwv]
